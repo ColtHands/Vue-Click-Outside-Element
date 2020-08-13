@@ -1,5 +1,5 @@
 # `v-click-outside-element`
-This is a simple directive to detect clicks ouside *element* _not component_ on which this directive applied.
+This is a simple directive to detect clicks ouside **element** _not component_ on which this directive applied.
 
 ## Install
 
