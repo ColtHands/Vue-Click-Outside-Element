@@ -1,20 +1,18 @@
 module.exports = {
     install(Vue) {
         Vue.directive('click-outside-element', {
-            bind(element, binding, vnode) {
-                element.clickOutside = event => {
-                    if (!(element == event.target || element.contains(event.target))) {
-                        if(vnode.context[binding.expression]) {
-                            vnode.context[binding.expression](event)
-                        } else {
-                            console.warn('v-click-outside-element directive needs a function inside <methods> object to run correctly')
+            bind(e, b, vn) {
+                e.cO = event => {
+                    if (!(e == event.target || e.contains(event.target))) {
+                        if(vn.context[b.expression]) {
+                            vn.context[b.expression](event)
                         }
                     }
                 }
-                document.body.addEventListener('click', element.clickOutside)
+                document.body.addEventListener('click', e.cO)
             },
-            unbind(element) {
-                document.body.removeEventListener('click', element.clickOutside)
+            unbind(e) {
+                document.body.removeEventListener('click', e.cO)
             }
         })
     }
