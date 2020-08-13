@@ -53,3 +53,4 @@ export default {
 * More tests with usability and browser compatibility
 * Strong typing with typescript
 * Supporting and tesing with `Vue 3`
+* Add CodeSandbox playground

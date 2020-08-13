@@ -11,7 +11,12 @@
     "directive",
     "click outside element",
     "dom",
-    "vue click"
+    "vue click",
+    "v-click-outside",
+    "vue-click-outside",
+    "vue click outside",
+    "vue outside",
+    "vue click outside element"
   ],
   "scripts": {
     "dev": "webpack --mode=development",
