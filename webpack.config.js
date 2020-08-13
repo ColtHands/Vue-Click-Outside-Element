@@ -4,8 +4,8 @@ const webpack = require('webpack')
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, './'),
-        filename: './VueClickOutsideElement.js',
+        path: path.resolve(__dirname, './dist'),
+        filename: './vue-click-outside-element.js',
         libraryTarget: 'commonjs2'
     },
     module: {

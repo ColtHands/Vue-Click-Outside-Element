@@ -1,4 +1,4 @@
-import VueClickOutsideElement from './../VueClickOutsideElement.js'
+import VueClickOutsideElement from './../dist/vue-click-outside-element.js'
 import App from './App.vue'
 import Vue from 'vue'
 
