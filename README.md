@@ -1,13 +1,13 @@
-# `v-click-cutside-element`
+# `v-click-outside-element`
 This is a simple directive to detect clicks ouside *element* _not component_ on which this directive applied.
 
 ## Install
 
-`npm i v-click-cutside-element`
+`npm i v-click-outside-element`
 
 or
 
-`yarn add v-click-cutside-element`
+`yarn add v-click-outside-element`
 
 ## Usage
 
