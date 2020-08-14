@@ -36,7 +36,7 @@ export default {
         return { showButton: true }
     },
     methods: {
-        close(e){
+        close(el){
             this.showButton = false
         }
     }
