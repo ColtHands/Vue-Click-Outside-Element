@@ -1,13 +1,13 @@
-# `v-click-outside-element`
+# `vue-click-outside-element`
 This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied.
 
 ## Install
 
-`npm i v-click-outside-element`
+`npm i vue-click-outside-element`
 
 or
 
-`yarn add v-click-outside-element`
+`yarn add vue-click-outside-element`
 
 ## Usage
 
