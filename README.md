@@ -17,7 +17,7 @@ It accepts only functions that are present inside `methods` object.
 
 `<div v-click-outside-element="someRandomFunction">Hello World</div>`
 
-## Example 
+## Example
 
 _App.vue_
 ```
@@ -26,6 +26,7 @@ _App.vue_
 </template>
 
 <script>
+import Vue from 'vue'
 import VueClickOutsideElement from 'VueClickOutsideElement'
 
 Vue.use(VueClickOutsideElement)
