@@ -1,5 +1,6 @@
 {
   "name": "vue-click-outside-element",
+  "author": "ColdHands",
   "version": "1.0.10",
   "description": "Vue directive for clicking outside element",
   "main": "./dist/vue-click-outside-element.js",
