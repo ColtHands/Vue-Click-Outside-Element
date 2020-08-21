@@ -1,7 +1,7 @@
 # `vue-click-outside-element`
 This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied.
 
-For clickin outside **component** check [Vue-Click-Outside-Component](https://github.com/ColdHandz/Vue-Click-Outside-Component)
+For clicking outside **component** check [Vue-Click-Outside-Component](https://github.com/ColdHandz/Vue-Click-Outside-Component)
 
 or search npm for `vue-click-outside-component`
 
