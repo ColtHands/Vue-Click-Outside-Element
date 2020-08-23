@@ -1,12 +1,26 @@
 {
     "compilerOptions": {
-        "target": "ES2015",
+        "target": "es5",
         "strict": true,
         "module": "commonjs",
-        "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "allowJs": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "rootDir": "src",
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true
     },
+    "lib": [
+        "es6",
+        "dom"
+    ],
     "include": ["src/**/*"]
 }

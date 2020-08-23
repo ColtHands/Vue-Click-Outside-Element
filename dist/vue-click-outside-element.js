@@ -95,7 +95,7 @@ module.exports =
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst directive = {\r\n    bind(elem, bind, vn) {\r\n        elem.clickOutside = (event) => {\r\n            if (!(elem == event.target || elem.contains(event.target))) {\r\n                if (vn.context[bind.expression]) {\r\n                    vn.context[bind.expression](event);\r\n                }\r\n            }\r\n        };\r\n        document.body.addEventListener('click', elem.clickOutside);\r\n    },\r\n    unbind(elem) {\r\n        document.body.removeEventListener('click', elem.clickOutside);\r\n    }\r\n};\r\nmodule.exports = {\r\n    install(Vue) {\r\n        Vue.directive('click-outside-element', directive);\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar directive = {\r\n    bind: function (elem, bind, vn) {\r\n        elem.doStuff = function (event) {\r\n            console.log(\"doing stuff\");\r\n        };\r\n        document.body.addEventListener(\"click\", elem.doStuff);\r\n    },\r\n    unbind: function (elem) {\r\n        document.body.removeEventListener(\"click\", elem.doStuff);\r\n    }\r\n};\r\nmodule.exports = {\r\n    install: function (Vue) {\r\n        Vue.directive('click-outside-element', directive);\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ })
 

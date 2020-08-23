@@ -1,27 +1,29 @@
 import { DirectiveOptions } from 'vue/types'
 
-interface HTMLElement {
-    clickOutside: (event: any) => void
+interface ExtendedHTMLElement extends HTMLElement {
+    clickOutside: (event: any) => void;
 }
 
 const directive:DirectiveOptions = {
-    bind(elem: HTMLElement, bind, vn): void {
-        elem.clickOutside = (event:any):void => {
+    bind(el, bind, vn): void {
+        const elem = el as ExtendedHTMLElement
+        elem.clickOutside = (event) => {
             if (!(elem == event.target || elem.contains(event.target))) {
-                if(vn.context[bind.expression]!) {
+                if(vn.context && vn.context[bind.expression]) {
                     vn.context[bind.expression](event)
                 }
             }
         }
         document.body.addEventListener('click', elem.clickOutside)
     },
-    unbind(elem): void {
+    unbind(el) {
+        const elem = el as ExtendedHTMLElement
         document.body.removeEventListener('click', elem.clickOutside)
     }
 }
 
 module.exports = {
-    install(Vue: any):void {
+    install(Vue: any): void {
         Vue.directive('click-outside-element', directive)
     }
 }
