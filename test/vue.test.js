@@ -1,25 +1,20 @@
-import { mount } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import MyComponent from './../example/App.vue'
+import vueClickOutsideElementDirective from './../src/index.js'
 
-const MessageComponent = {
-		template: '<p>{{ msg }}</p>',
-		props: ['msg']
-	}
-	test('displays message', () => {
-		// mount() returns a wrapped Vue component we can interact with
-		const wrapper = mount(MessageComponent, {
-			propsData: {
-				msg: 'Hello world'
-			}
-		})
-		const MyComponentMounted = mount(MyComponent)
-		// Assert the rendered text of the component
-		expect(wrapper.text()).toContain('Hello world')
-		expect(MyComponentMounted.text()).toContain('this button is showing, but if you click outside of it...')
-	})
+const localVue = createLocalVue()
+localVue.use(vueClickOutsideElementDirective)
 
-// import exampleComponent from './../example/App.vue'
+const mountOpts = { localVue }
+const wrapper = mount(MyComponent, mountOpts)
 
-// test('displays message', () => {
-//     const componentMount = mount(exampleComponent)
-// })
+test('displays message', () => {
+	// console.log(wrapper)
+	console.log(wrapper.vm._vnode)
+	console.log(wrapper.vm._vnode.directives)
+	console.log(wrapper.vm.showButton)
+	console.log(wrapper.vm.close)
+	console.log(wrapper.vm.foo)
+	// expect(wrapper.vm.foo).toBe(true)
+	// expect(MyComponentMounted.text()).toContain('this button is showing, but if you click outside of it...')
+})
