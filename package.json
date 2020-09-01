@@ -50,7 +50,7 @@
     ]
   },
   "scripts": {
-    "dev": "webpack --mode=development",
+    "start": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "test": "jest"
@@ -64,6 +64,8 @@
     "babel-loader": "^8.1.0",
     "jest": "^26.4.2",
     "terser-webpack-plugin": "^4.1.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^4.0.2",
     "vue": "^2.6.11",
     "vue-jest": "^3.0.6",
     "vue-loader": "^15.9.3",

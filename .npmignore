@@ -4,3 +4,4 @@ src
 test
 webpack.config.js
 yarn.lock
+tsconfig.json

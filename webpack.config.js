@@ -6,7 +6,7 @@ const argv = require('yargs').argv
 const minimize = argv.mode == 'production'
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: './vue-click-outside-element.js',
@@ -28,6 +28,10 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader'
+            },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
