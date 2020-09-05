@@ -1,20 +1,31 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import MyComponent from './../example/App.vue'
-import vueClickOutsideElementDirective from './../src/index.js'
+import vueClickOutsideElementDirective from './../dist/vue-click-outside-element.js'
 
 const localVue = createLocalVue()
 localVue.use(vueClickOutsideElementDirective)
 
-const mountOpts = { localVue }
-const wrapper = mount(MyComponent, mountOpts)
+const testMethod = jest.fn()
 
-test('displays message', () => {
-	// console.log(wrapper)
-	// console.log(wrapper.vm._vnode)
-	console.log(wrapper.vm._vnode)
-	// console.log(wrapper.vm.showButton)
-	// console.log(wrapper.vm.close)
-	// console.log(wrapper.vm.foo)
-	// expect(wrapper.vm.foo).toBe(true)
-	// expect(MyComponentMounted.text()).toContain('this button is showing, but if you click outside of it...')
+const wrapper = shallowMount({
+	name: "app",
+	directives: {
+		'click-outside-element': vueClickOutsideElementDirective
+	},
+	methods: {
+		testMethod
+	},
+	template: `<div>
+		<div class="div-with" v-click-outside-element="testMethod">div with directive</div>
+		<div class="div-without">div without directire</div>
+	</div>`
+}, {
+	localVue,
+})
+
+test('2', () => {
+	const div = wrapper.find('.div-without')
+	div.trigger('click')
+	expect(div.exists()).toBe(true)
+	expect(testMethod).toBeCalled()
 })
