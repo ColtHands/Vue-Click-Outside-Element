@@ -1,5 +1,4 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import MyComponent from './../example/App.vue'
 import vueClickOutsideElementDirective from './../dist/vue-click-outside-element.js'
 
 const localVue = createLocalVue()

@@ -54,7 +54,8 @@
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "test": "jest",
-    "test:format": "eclint check"
+    "test:ec": "eclint check",
+    "test:pr": "prettier --write example/*.vue"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -75,5 +76,8 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "yargs": "^15.4.1"
+  },
+  "dependencies": {
+    "prettier": "^2.1.1"
   }
 }
