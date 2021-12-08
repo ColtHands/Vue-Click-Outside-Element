@@ -4,7 +4,7 @@
   "version": "1.0.13",
   "description": "Vue directive for clicking outside element",
   "main": "./dist/vue-click-outside-element.js",
-  "repository": "https://github.com/ColdHandz/Vue-Click-Outside-Element.git",
+  "repository": "https://github.com/ColtHands/Vue-Click-Outside-Element.git",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@coldhandz"
