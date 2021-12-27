@@ -7,7 +7,8 @@
   "repository": "https://github.com/ColtHands/Vue-Click-Outside-Element.git",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@coldhandz"
+    "registry": "https://registry.npmjs.org",
+    "git-registry": "https://npm.pkg.github.com/@coldhandz"
   },
   "keywords": [
     "vue",
@@ -53,9 +54,7 @@
     "start": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
-    "test": "jest",
-    "test:ec": "eclint check",
-    "test:pr": "prettier --write example/*.vue"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -64,7 +63,6 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
-    "eclint": "^2.8.1",
     "jest": "^26.4.2",
     "terser-webpack-plugin": "^4.1.0",
     "ts-loader": "^8.0.2",
@@ -76,8 +74,5 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "yargs": "^15.4.1"
-  },
-  "dependencies": {
-    "prettier": "^2.1.1"
   }
 }
