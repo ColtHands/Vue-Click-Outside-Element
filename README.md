@@ -1,3 +1,6 @@
+
+[![npm version shield](https://img.shields.io/npm/v/vue-click-outside-element)](https://www.npmjs.com/package/vue-click-outside-element)
+
 # `vue-click-outside-element`
 This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied.
 
