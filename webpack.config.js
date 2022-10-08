@@ -16,13 +16,10 @@ module.exports = {
         minimize,
         minimizer: [new TerserPlugin({
             parallel: false,
-            sourceMap: false,
-            cache: false,
-            extractComments: false,
             terserOptions: {
                 compress: {
                     drop_console: true,
-                },
+                }
             }
         })]
     },
@@ -38,7 +35,7 @@ module.exports = {
                 options: {
                     presets: ["@babel/preset-env"]
                 }
-            },
+            }
         ]
     }
-};
+}

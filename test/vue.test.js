@@ -1,30 +1,27 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import vueClickOutsideElementDirective from './../dist/vue-click-outside-element.js'
 
-const localVue = createLocalVue()
-localVue.use(vueClickOutsideElementDirective)
+describe("v-click-outside-element directive", () => {
+	const mockMethod = jest.fn()
 
-const testMethod = jest.fn()
+	const wrapper = mount({
+		name: "app",
+		directives: {
+			'click-outside-element': vueClickOutsideElementDirective
+		},
+		methods: {
+			mockMethod
+		},
+		template: `<div>
+			<div class="div-with-directive" v-click-outside-element="mockMethod">div with directive</div>
+			<div class="div-without-directive">div without directive</div>
+		</div>`
+	})
 
-const wrapper = shallowMount({
-	name: "app",
-	directives: {
-		'click-outside-element': vueClickOutsideElementDirective
-	},
-	methods: {
-		testMethod
-	},
-	template: `<div>
-		<div class="div-with" v-click-outside-element="testMethod">div with directive</div>
-		<div class="div-without">div without directire</div>
-	</div>`
-}, {
-	localVue,
-})
+	const div = wrapper.find('.div-without-directive')
 
-test('2', () => {
-	const div = wrapper.find('.div-without')
-	div.trigger('click')
-	expect(div.exists()).toBe(true)
-	expect(testMethod).toBeCalled()
+	test('should work correctly', () => {
+		expect(wrapper.exists()).toBe(true)
+		expect(div.exists()).toBe(true)
+	})
 })
