@@ -18,10 +18,20 @@ describe("v-click-outside-element directive", () => {
 		</div>`
 	})
 
-	const div = wrapper.find('.div-without-directive')
+	const divWithDirective = wrapper.get('.div-with-directive')
+	const divWithoutDirective = wrapper.get('.div-without-directive')
 
-	test('should work correctly', () => {
+	test('should work correctly', async () => {
+		// console.log('wrapper', wrapper)
+		// console.log('divWithDirective', divWithDirective)
+		// console.log('divWithoutDirective', divWithoutDirective)
+
 		expect(wrapper.exists()).toBe(true)
-		expect(div.exists()).toBe(true)
+		expect(divWithDirective.exists()).toBe(true)
+		expect(divWithoutDirective.exists()).toBe(true)
+
+		await divWithoutDirective.trigger('click')
+
+		expect(mockMethod).toBeCalled()
 	})
 })

@@ -1,11 +1,9 @@
-import { VueConstructor, PluginObject, DirectiveOptions } from 'vue/types'
-
 interface ExtendedHTMLElement extends HTMLElement {
     clickOutside: (event: any) => void
 }
 
-const directive:DirectiveOptions = {
-    bind(el, bind, vn): void {
+const directive = {
+    bind(el: any, bind: any, vn: any): void {
         const elem = el as ExtendedHTMLElement
 
         elem.clickOutside = (event) => {
@@ -17,17 +15,15 @@ const directive:DirectiveOptions = {
         }
         document.body.addEventListener('click', elem.clickOutside)
     },
-    unbind(el): void {
-        const elem = el as ExtendedHTMLElement
-
-        document.body.removeEventListener('click', elem.clickOutside)
+    unbind(element: ExtendedHTMLElement): void {
+        document.body.removeEventListener('click', element.clickOutside)
     }
 }
 
-const plugin: PluginObject<any> = {
-    install(Vue: VueConstructor): void {
+const plugin = {
+    install(Vue: any): void {
         Vue.directive('click-outside-element', directive)
     }
 }
 
-module.exports = plugin
+export default plugin

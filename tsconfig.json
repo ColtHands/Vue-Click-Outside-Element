@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "strict": true,
-        "module": "commonjs",
+        "module": "UMD",
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
