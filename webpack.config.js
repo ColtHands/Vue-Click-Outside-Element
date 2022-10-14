@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: './vue-click-outside-element.js',
-        libraryTarget: prodMode ? 'commonjs2' : 'umd'
+        libraryTarget: 'umd'
     },
     optimization: {
         minimize: prodMode,
