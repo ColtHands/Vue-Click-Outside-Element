@@ -1,33 +1,41 @@
-import { VueConstructor, PluginObject, DirectiveOptions } from 'vue/types'
+import {
+    type ObjectDirective,
+    type Plugin
+} from '@vue/runtime-core'
 
 interface ExtendedHTMLElement extends HTMLElement {
-    clickOutside: (event: any) => void
+    clickOutside: (event: MouseEvent) => void
 }
 
-const directive:DirectiveOptions = {
-    bind(el, bind, vn): void {
-        const elem = el as ExtendedHTMLElement
+const directive: ObjectDirective<ExtendedHTMLElement, Function> = {
+    beforeMount(element, bind, vn): void {
+        const isDirectiveValueFunction = bind?.value?.constructor.name === 'Function'
 
-        elem.clickOutside = (event) => {
-            if (!(elem == event.target || elem.contains(event.target))) {
-                if(vn.context && vn.context[bind.expression]) {
-                    vn.context[bind.expression](event)
+        if(!isDirectiveValueFunction) {
+            throw Error('[v-click-outside-element] Function should be provided in the directive')
+        }
+
+        element.clickOutside = event => {
+            if(event.target instanceof Element) {
+                if(!(element === event.target || element.contains(event.target))) {
+                    bind.value(event)
                 }
             }
         }
-        document.body.addEventListener('click', elem.clickOutside)
-    },
-    unbind(el): void {
-        const elem = el as ExtendedHTMLElement
 
-        document.body.removeEventListener('click', elem.clickOutside)
+        window.addEventListener('click', element.clickOutside)
+    },
+    beforeUnmount(element): void {
+        window.removeEventListener('click', element.clickOutside)
     }
 }
 
-const plugin: PluginObject<any> = {
-    install(Vue: VueConstructor): void {
-        Vue.directive('click-outside-element', directive)
+const plugin: Required<Plugin> = {
+    install(Vue, name: string = 'click-outside-element'): void {
+        Vue.directive(name, directive)
     }
 }
 
 module.exports = plugin
+exports = module.exports
+exports.directive = directive

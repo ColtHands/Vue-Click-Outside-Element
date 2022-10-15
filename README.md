@@ -1,20 +1,11 @@
-
-[![npm version shield](https://img.shields.io/npm/v/vue-click-outside-element)](https://www.npmjs.com/package/vue-click-outside-element)
-
-# `vue-click-outside-element`
-This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied.
-
-For clicking outside **component** check [Vue-Click-Outside-Component](https://github.com/ColdHandz/Vue-Click-Outside-Component)
-
-or search npm for `vue-click-outside-component`
+# `vue-click-outside-element` | `v-click-outside-element`
+This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied. For clicking outside **component** check [Vue-Click-Outside-Component](https://github.com/ColdHandz/Vue-Click-Outside-Component)
 
 ## Install
+* For Vue 3 `npm i vue-click-outside-element`
+* For Vue 2 `npm i vue-click-outside-element@1.0.15`
 
-`npm i vue-click-outside-element`
-
-or
-
-`yarn add vue-click-outside-element`
+**NOTE**: _Vue 3 version of this directive is better typed and way better tested_
 
 ## Usage
 
@@ -26,18 +17,23 @@ It accepts only functions that are present inside `methods` object.
 
 ## Example
 
-_App.vue_
+```js
+// main.js
+import vueClickOutsideElement from 'vue-click-outside-element'
+
+const app = createApp(App)
+
+app.use(vueClickOutsideElement)
+app.mount('#app')
 ```
+
+```vue
+<!-- App.vue -->
 <template>
     <button v-click-outside-element="close" v-if="showButton">showing</button>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueClickOutsideElement from 'VueClickOutsideElement'
-
-Vue.use(VueClickOutsideElement)
-
 export default {
     data() {
         return { showButton: true }
@@ -58,7 +54,5 @@ export default {
 
 ## Roadmap
 
-* More tests with usability and browser compatibility
-* Strong typing with typescript
-* Supporting and tesing with `Vue 3`
-* Add CodeSandbox playground
+* Combining `click outside element` and `click outside component` in one package
+* Introduce more tests
