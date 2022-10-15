@@ -25,6 +25,13 @@ import vueClickOutsideElement from 'vue-click-outside-element'
 
 const app = createApp(App)
 
+/* NOTE: By default directive mounts with `click-outside-element`
+ * `app.use(vueClickOutsideElement)`
+ * But you can name it whatever you want
+ * app.use(vueClickOutsideElement, 'my-name')
+ * And use it like `<div v-my-name="method"></div>`
+ */
+
 app.use(vueClickOutsideElement)
 app.mount('#app')
 ```
