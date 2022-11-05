@@ -1,13 +1,26 @@
 import {
     type ObjectDirective,
-    type Plugin
+    type Plugin,
+    type DirectiveBinding
 } from '@vue/runtime-core'
 
+type ClickOutside = (event: MouseEvent) => void
+
 interface ExtendedHTMLElement extends HTMLElement {
-    clickOutside: (event: MouseEvent) => void
+    clickOutside: ClickOutside
 }
 
-const directive: ObjectDirective<ExtendedHTMLElement, Function> = {
+function clickOutside(this: ExtendedHTMLElement, bind: DirectiveBinding<Function>): ClickOutside {
+    return event => {
+        if(event.target instanceof Element) {
+            if(!(this === event.target || this.contains(event.target))) {
+                bind.value(event)
+            }
+        }
+    }
+}
+
+export const directive: ObjectDirective<ExtendedHTMLElement, Function> = {
     beforeMount(element, bind, vn): void {
         const isDirectiveValueFunction = bind?.value?.constructor.name === 'Function'
 
@@ -15,13 +28,7 @@ const directive: ObjectDirective<ExtendedHTMLElement, Function> = {
             throw Error('[v-click-outside-element] Function should be provided in the directive')
         }
 
-        element.clickOutside = event => {
-            if(event.target instanceof Element) {
-                if(!(element === event.target || element.contains(event.target))) {
-                    bind.value(event)
-                }
-            }
-        }
+        element.clickOutside = clickOutside.bind(element)(bind)
 
         window.addEventListener('click', element.clickOutside)
     },
@@ -36,6 +43,4 @@ const plugin: Required<Plugin> = {
     }
 }
 
-module.exports = plugin
-exports = module.exports
-exports.directive = directive
+export default plugin

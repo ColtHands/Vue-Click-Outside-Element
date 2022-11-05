@@ -10,11 +10,11 @@ describe('v-click-outside-element', () => {
             })
 
             test('has correct object structure', () => {
+                expect(directive).toStrictEqual({
+                    beforeMount: expect.any(Function),
+                    beforeUnmount: expect.any(Function)
+                })
                 expect(vueClickOutsideElement).toStrictEqual({
-                    directive: {
-                        beforeMount: expect.any(Function),
-                        beforeUnmount: expect.any(Function)
-                    },
                     install: expect.any(Function)
                 })
             })
