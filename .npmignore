@@ -1,9 +1,13 @@
+.eslintrc.js
+.vscode
+coverage
 example
 node_modules
 src
 test
+tsconfig.json
+vite.config.ts
 webpack.config.js
 yarn.lock
-tsconfig.json
-.vscode
-coverage
+.gitignore
+index.html
