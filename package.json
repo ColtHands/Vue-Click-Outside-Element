@@ -1,7 +1,7 @@
 {
   "name": "vue-click-outside-element",
   "author": "ColdHands",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "description": "Vue directive for clicking outside element",
   "main": "./dist/vue-click-outside-element.js",
   "repository": "https://github.com/ColtHands/Vue-Click-Outside-Element.git",
@@ -26,6 +26,7 @@
     "vue hook",
     "vue click outside hook"
   ],
+  "typings": "./typings.d.ts",
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -56,7 +57,8 @@
     "start": "webpack --watch --mode=development --stats-error-details",
     "build:dev": "webpack --mode=development --stats-error-details",
     "build:prod": "webpack --mode=production --stats-error-details",
-    "test": "jest --runInBand --watch"
+    "test": "jest --runInBand --watch",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
