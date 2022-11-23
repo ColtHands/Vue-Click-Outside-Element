@@ -22,5 +22,5 @@
         "es6",
         "dom"
     ],
-    "include": ["src/**/*"]
+    "include": ["src/**/*", "typings.d.ts"],
 }
