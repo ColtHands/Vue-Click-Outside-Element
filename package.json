@@ -10,6 +10,7 @@
     "registry": "https://registry.npmjs.org",
     "git-registry": "https://npm.pkg.github.com/@coldhandz"
   },
+  "typings": "typings.d.ts",
   "keywords": [
     "vue",
     "vue directive",
