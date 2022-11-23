@@ -11,3 +11,4 @@ webpack.config.js
 yarn.lock
 .gitignore
 index.html
+package-lock.json
