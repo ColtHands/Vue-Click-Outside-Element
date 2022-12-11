@@ -8,7 +8,7 @@
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
-    "git-registry": "https://npm.pkg.github.com/@coldhandz"
+    "git-registry": "https://npm.pkg.github.com/@colthands"
   },
   "typings": "typings.d.ts",
   "keywords": [
