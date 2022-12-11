@@ -1,21 +1,29 @@
-name: Node.js CI
+name: Node.js test CI workflow
 
 on:
-  pull_request:
-    branches: [ "master", "main" ]
-  push:
-    branches: [ "master", "main" ]
+  - pull_request
+  - push
 
 jobs:
-  test:
-    # should run on win32
-    runs-on: windows-latest
+  install-and-test:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14.x
-        cache: 'npm'
-    - run: npm i
-    - run: npm test -- --coverage
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+      
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test
+        run: pnpm test
