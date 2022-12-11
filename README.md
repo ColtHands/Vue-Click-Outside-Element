@@ -1,4 +1,6 @@
 [![npm version shield](https://img.shields.io/npm/v/vue-click-outside-element)](https://www.npmjs.com/package/vue-click-outside-element)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/colthands/Vue-Click-Outside-Element/Node.js%20test%20CI%20workflow?color=lightseagreen&label=tests)
+
 
 # `vue-click-outside-element`
 This is a simple very small directive to detect clicks ouside **element** _not component_ on which this directive applied. For clicking outside **component** check [Vue-Click-Outside-Component](https://github.com/ColdHandz/Vue-Click-Outside-Component)
