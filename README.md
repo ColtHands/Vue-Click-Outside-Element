@@ -1,5 +1,5 @@
 [![npm version shield](https://img.shields.io/npm/v/vue-click-outside-element)](https://www.npmjs.com/package/vue-click-outside-element)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/colthands/Vue-Click-Outside-Element/node.js.yml?branch=main&color=lightseagreen&label=tests)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/colthands/Vue-Click-Outside-Element/node.js.yml?branch=master&color=lightseagreen&label=tests)
 
 
 # `vue-click-outside-element`
